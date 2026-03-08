@@ -4,15 +4,15 @@ import { Line } from "react-chartjs-2"
 
 export function Grafico() {
     return (
-        <div className="flex gap-6 flex-col bg-gray-800 w-[45vw] h-100 rounded-xl border border-gray-600">
+        <div className="flex flex-col gap-4 bg-gray-800 w-full max-w-sm sm:max-w-xl lg:max-w-2xl h-72 md:h-80 lg:h-96 rounded-xl border border-gray-600">
             
-            <div className='pl-5 pt-5'>
-                <p className="font-bold text-gray-400">
+            <div className='px-4 pt-4'>
+                <p className="font-bold text-gray-400 text-sm md:text-base">
                     Grafico de temperatura
                 </p>
             </div>
 
-            <div className="w-full h-full p-4">
+            <div className="w-full h-full px-3 md:px-4 pb-4">
                 <Line
                     data={{
                         labels: ["0°", "7°", "14°", "21°", "28°"],

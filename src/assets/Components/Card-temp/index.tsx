@@ -1,16 +1,28 @@
 import './index.css'
-import { FaTemperatureLow } from "react-icons/fa";
-
+import { FaTemperatureLow } from "react-icons/fa"
 
 export default function Card_temp () {
     return(
-        <div className="bg-gray-800 w-100 h-100 rounded-2xl border border-gray-600 ">
-            <div className="flex flex-col gap-3.5 w-100 h-100 justify-center items-center " >
-                <p className='text-gray-500'>Leitura atual</p>
-                <FaTemperatureLow  className='text-blue-400'/>
-                <h1 className='text-4xl text-blue-400'>14.4 <span className='text-2xl text-blue-400'>C°</span></h1>
-                <p className='text-blue-400'>Amena</p>
+        <div className="bg-gray-800 w-full max-w-sm sm:max-w-md md:w-80 lg:w-96 h-56 md:h-64 lg:h-72 rounded-2xl border border-gray-600 flex items-center justify-center">
+            
+            <div className="flex flex-col gap-3 md:gap-4 items-center text-center">
+
+                <p className='text-gray-500 text-sm md:text-base'>
+                    Leitura atual
+                </p>
+
+                <FaTemperatureLow className='text-blue-400 text-4xl md:text-5xl lg:text-6xl'/>
+
+                <h1 className='text-2xl md:text-3xl lg:text-4xl text-blue-400'>
+                    14.4 <span className='text-lg md:text-xl lg:text-2xl'>°C</span>
+                </h1>
+
+                <p className='text-blue-400 text-sm md:text-base'>
+                    Amena
+                </p>
+
             </div>
+
         </div>
     );
 }
