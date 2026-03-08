@@ -1,5 +1,5 @@
 import './index.css'
-import Chart from 'chart.js/auto'
+import 'chart.js/auto'
 import { Line } from "react-chartjs-2"
 
 export function Grafico() {
