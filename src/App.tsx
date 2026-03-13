@@ -1,9 +1,10 @@
 
 import './App.css'
-import Card_Mediun from './assets/Components/Card-mediun'
-import Card_temp from './assets/Components/Card-temp'
-import { Grafico } from './assets/Components/Grafico'
-import Header from './assets/Components/Header'
+import Card_Mediun from './Components/Cards/CardMedium'
+import Card_temp from './Components/Cards/CardTemp'
+import { Grafico } from './Components/Charts/Grafico'
+import HistoricoTemp from './Components/Data/HistoricoTemp'
+import Header from './Components/Layout/Header'
 
 
 function App() {
@@ -18,12 +19,15 @@ function App() {
           <div className="flex gap-15 items-center justify-center">
             <Card_temp />
             <Grafico />
-
           </div>
 
 
           <div className='flex'>
             <Card_Mediun />
+          </div>
+
+          <div>
+            <HistoricoTemp/>
           </div>
         </div>
 

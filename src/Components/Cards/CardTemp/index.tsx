@@ -1,11 +1,11 @@
-import './index.css'
+
 import { FaTemperatureLow } from "react-icons/fa"
 
 export default function Card_temp () {
     return(
-        <div className="bg-gray-800 w-full max-w-sm sm:max-w-md md:w-80 lg:w-96 h-56 md:h-64 lg:h-72 rounded-2xl border border-gray-600 flex items-center justify-center">
+        <div className="bg-gray-800 w-130 h-100 max-w-sm  rounded-2xl border border-gray-600 flex items-center justify-center">
             
-            <div className="flex flex-col gap-3 md:gap-4 items-center text-center">
+            <div className="flex flex-col gap-3  items-center text-center">
 
                 <p className='text-gray-500 text-sm md:text-base'>
                     Leitura atual
