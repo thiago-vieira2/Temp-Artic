@@ -1,4 +1,6 @@
 export default function Card_Mediun() {
+
+    
     return (
 
         <div className="flex flex-col sm:flex-row lg:flex-row gap-4 md:gap-6 w-full justify-center items-center">
