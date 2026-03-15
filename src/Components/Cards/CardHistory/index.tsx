@@ -20,7 +20,7 @@ export default function CardHistory({Temp, onDelete } : HistoricProp    ) {
     return (
         <div className="w-230 h-10 bg-[#191C23] rounded-2xl border border-gray-600 flex  items-center justify-between pl-5 pr-5 ">
             <div className="flex flex-row gap-3 items-center">
-                <h1 className={`${TempColor} font-bold text-2xl`}>{Temp} </h1>
+                <h1 className={`${TempColor} font-bold text-2xl`}>{Temp}°C </h1>
                 <p className="flex items-center gap-1 text-gray-500"><FaLocationDot /> {Hora.toLocaleDateString()}</p>
             </div>
 

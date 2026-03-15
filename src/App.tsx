@@ -1,6 +1,7 @@
 
+import { useState } from 'react'
 import './App.css'
-import Card_Mediun from './Components/Cards/CardMedium'
+import CardMedium from './Components/Cards/CardMedium'
 import Card_temp from './Components/Cards/CardTemp'
 import { Grafico } from './Components/Charts/Grafico'
 import HistoricoTemp from './Components/Data/HistoricoTemp'
@@ -8,6 +9,15 @@ import Header from './Components/Layout/Header'
 
 
 function App() {
+
+  const Min = 22.5
+  const Max = 60.5
+  const Media = (Max+Min)/2
+
+  const [temp, setTemp] = useState([
+    { TempMin: Min, TempMax: Max, TempMedia: Media  }
+
+  ])
 
 
   return (
@@ -23,11 +33,24 @@ function App() {
 
 
           <div className='flex'>
-            <Card_Mediun />
+            {temp.map((temperatura, index) => {
+
+              return (
+
+                <CardMedium
+                  key={index}
+                  TempMin={temperatura.TempMin}
+                  TempMax={temperatura.TempMax}
+                  TempMedia={temperatura.TempMedia}
+                  
+
+                />
+              )
+            })}
           </div>
 
           <div>
-            <HistoricoTemp/>
+            <HistoricoTemp />
           </div>
         </div>
 
