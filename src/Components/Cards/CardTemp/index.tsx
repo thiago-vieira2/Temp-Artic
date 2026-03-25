@@ -1,48 +1,69 @@
-
+import { useEffect, useState } from "react"
 import { FaTemperatureLow } from "react-icons/fa"
+import API from "../../Data/API"
 
 export default function Card_temp() {
 
-    const Temp = 154.5
+    const [dados, setDados] = useState([])
+    const [temp, setTemp] = useState(null)
+
+    useEffect(() => {
+        async function carregar() {
+            try {
+                const data = await API()
+
+                setDados(data)
+
+                // pegar o último registro
+                const ultimo = data[data.length - 1]
+
+                setTemp(ultimo.temp)
+
+            } catch (error) {
+                console.error(error)
+            }
+        }
+
+        carregar() // ← FALTAVA ISSO
+    }, [])
+
+    if (temp === null) {
+        return <p>Carregando...</p>
+    }
+
     let TempColor = ''
     let TempText = ''
 
-    if (Temp < 25) {
+    if (temp < 25) {
         TempColor = "text-blue-400"
         TempText = "Amena"
     }
-    else if (Temp > 25.5 && Temp < 160) 
-        {
-            TempColor = "text-amber-400 "
-            TempText = "Media"
-        }
-
-    else if (Temp > 160 && Temp < 200) 
-        {
-            TempColor = "text-red-400 "
-            TempText = "Quente"
-        }
-
+    else if (temp < 160) {
+        TempColor = "text-amber-400"
+        TempText = "Media"
+    }
+    else if (temp < 200) {
+        TempColor = "text-red-400"
+        TempText = "Quente"
+    }
     else {
         TempColor = "text-red-800"
         TempText = "Chernobyl"
     }
 
-
-
     return (
-        <div className="bg-gray-800 w-130 h-100 max-w-sm  rounded-2xl border border-gray-600 flex items-center justify-center">
+        <div className="bg-gray-800 w-130 h-100 max-w-sm rounded-2xl border border-gray-600 flex items-center justify-center">
 
-            <div className="flex flex-col gap-3  items-center text-center">
+            <div className="flex flex-col gap-3 items-center text-center">
 
                 <p className='text-gray-500 text-sm md:text-base'>
                     Leitura atual
                 </p>
 
-                <FaTemperatureLow className= {`${TempColor} text-4xl md:text-5xl lg:text-6xl`} />
+                <FaTemperatureLow className={`${TempColor} text-4xl md:text-5xl lg:text-6xl`} />
 
                 <h1 className={`text-2xl md:text-3xl lg:text-4xl ${TempColor}`}>
-                    {Temp} <span className='text-lg md:text-xl lg:text-2xl'>°C</span>
+                    {temp} <span className='text-lg md:text-xl lg:text-2xl'>°C</span>
                 </h1>
 
                 <p className={`${TempColor} text-sm md:text-base`}>
@@ -52,5 +73,5 @@ export default function Card_temp() {
             </div>
 
         </div>
-    );
+    )
 }

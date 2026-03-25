@@ -6,8 +6,6 @@ import Card_temp from './Components/Cards/CardTemp'
 import { Grafico } from './Components/Charts/Grafico'
 import HistoricoTemp from './Components/Data/HistoricoTemp'
 import Header from './Components/Layout/Header'
-
-
 function App() {
 
   const Min = 22.5
@@ -21,8 +19,7 @@ function App() {
 
 
   return (
-    <>
-      <main className='bg-gray-900 min-h-screen flex flex-col gap-10'>
+       <main className='bg-gray-900 min-h-screen flex flex-col gap-10'>
         <Header />
 
         <div className='flex flex-col items-center gap-10 '>
@@ -55,7 +52,8 @@ function App() {
         </div>
 
       </main>
-    </>
+    
+     
   )
 }
 
