@@ -1,3 +1,4 @@
+
 import { FaTrash } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 
@@ -6,10 +7,12 @@ import { FaLocationDot } from "react-icons/fa6";
 
 type HistoricProp = {
     Temp: number,
+    Date: string,
     onDelete: () => void
 }
 
 export default function CardHistory({Temp, onDelete } : HistoricProp    ) {
+
 
     let TempColor  = ''
     

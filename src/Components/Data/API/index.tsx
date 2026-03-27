@@ -12,11 +12,7 @@ export default async function API() {
         })
 
         return response.data
-      /*   dados.forEach(item => {
-            console.log("ID: "+item.ID);
-            console.log("Temp: "+item.temp);
-            console.log("Potencia: "+item["potencia fogão"]);
-        }); */
+
     } catch (error) {
         console.error(error)
         throw error
