@@ -19,18 +19,23 @@ type TempAPI = {
 function App() {
 
   const [temp, setTemp] = useState<TempAPI[]>([])
-  let Min = 22.5
-  let Max = 60.5
-  let Media = (Max + Min) / 2
+  const [max, setMax] = useState(0)
+  const [min, setMin] = useState(0)
+  const [media, setMedia] = useState(0)
 
   useEffect(() => {
     try {
-      async function Chamada () {
+      async function Chamada() {
         let data = await API()
-       const temperaturas = temp.map((item: TempAPI) => item.temp)
+        
+        const temperaturas = data.map((item: TempAPI) => item.temp)
+        setMin(Math.min(...temperaturas))
+        setMax(Math.max(...temperaturas))
+        let conta = (max + min) / 2
+        setMedia(conta)
 
       }
-      
+
       Chamada()
     } catch (error) {
       console.error("Error" + error)
@@ -50,7 +55,7 @@ function App() {
 
 
         <div className='flex'>
-         {/*  {temp.map((temperatura, index) => {
+          {/*  {temp.map((temperatura, index) => {
 
             return (
 
