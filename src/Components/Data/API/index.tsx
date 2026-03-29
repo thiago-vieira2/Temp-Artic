@@ -10,7 +10,8 @@ export default async function API() {
 
 
         })
-
+        console.log(response.data)
+        console.log('funciona')
         return response.data
 
     } catch (error) {

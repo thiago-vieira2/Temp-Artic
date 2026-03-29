@@ -11,13 +11,15 @@ export default function Card_temp() {
         async function carregar() {
             try {
                 const data = await API()
+                console.log(data)
 
                 setDados(data)
 
                 // pegar o último registro
                 const ultimo = data[data.length - 1]
 
-                setTemp(ultimo.temp)
+                setTemp(ultimo.Temp)
+                console.log(temp)
 
             } catch (error) {
                 console.error(error)

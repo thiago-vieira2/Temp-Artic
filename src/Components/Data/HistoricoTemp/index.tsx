@@ -3,8 +3,8 @@ import CardHistory from "../../Cards/CardHistory";
 import API from "../API";
 
 type TempData = {
-    temp: number;
-    date: string;
+    Temp: number;
+    Data: string;
 };
 
 export default function HistoricoTemp() {
@@ -17,11 +17,15 @@ export default function HistoricoTemp() {
                 const data = await API();
 
                 const formatado: TempData[] = data.map((item: any) => ({
-                    temp: item.temp,
-                    date: item.Data ?? item.date ?? new Date().toISOString()
-                }));
+    Temp: item.Temp,
+    Data: item.Data ?? new Date().toISOString()
+}));
+
+                console.log(formatado)
 
                 setServices(formatado);
+
+                console.log(services)
 
             } catch (error) {
                 console.error("Erro ao carregar API:", error);
@@ -47,9 +51,9 @@ export default function HistoricoTemp() {
             <div className="flex flex-col gap-3">
                 {services.map((service, index) => (
                     <CardHistory
-                        key={`${service.temp}-${service.date}`}
-                        Temp={service.temp}
-                        Date={service.date}
+                        key={`${service.Temp}-${service.Data}`}
+                        Temp={service.Temp}
+                        Date={service.Data}
                         onDelete={() => Delete(index)}
                     />
                 ))}

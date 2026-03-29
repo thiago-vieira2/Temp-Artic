@@ -11,9 +11,9 @@ import API from './Components/Data/API'
 type TempAPI = {
   ID: number | string
   Data: string
-  hora: string
-  temp: number
-  "potencia fogão": number
+  Hora: string
+  Temp: number
+  PotenciaFogão: number
 }
 
 function App() {
@@ -23,24 +23,30 @@ function App() {
   const [min, setMin] = useState(0)
   const [media, setMedia] = useState(0)
 
-  useEffect(() => {
+useEffect(() => {
+  async function Chamada() {
     try {
-      async function Chamada() {
-        let data = await API()
-        
-        const temperaturas = data.map((item: TempAPI) => item.temp)
-        setMin(Math.min(...temperaturas))
-        setMax(Math.max(...temperaturas))
-        let conta = (max + min) / 2
-        setMedia(conta)
+      const data = await API()
 
-      }
+      const temperaturas = data.map((item: TempAPI) => item.Temp)
+      console.log("temp: "+temperaturas)
 
-      Chamada()
+      const minTemp = Math.min(...temperaturas)
+      const maxTemp = Math.max(...temperaturas)
+      const mediaTemp = temperaturas.reduce((acc:number, val:number) => acc + val, 0) / temperaturas.length
+
+      setTemp(data)
+      setMin(minTemp)
+      setMax(maxTemp)
+      setMedia(mediaTemp)
+
     } catch (error) {
-      console.error("Error" + error)
+      console.error(error)
     }
-  }, [])
+  }
+
+  Chamada()
+}, [])
 
 
   return (
@@ -55,20 +61,14 @@ function App() {
 
 
         <div className='flex'>
-          {/*  {temp.map((temperatura, index) => {
-
-            return (
+           
 
               <CardMedium
-                key={index}
-                TempMin={temperatura.TempMin}
-                TempMax={temperatura.TempMax}
-                TempMedia={temperatura.TempMedia}
-
-
+                TempMin={min}
+                TempMax={max}
+                TempMedia={media}
               />
-            )
-          })} */}
+         
         </div>
 
         <div>
