@@ -17,9 +17,9 @@ export default function HistoricoTemp() {
                 const data = await API();
 
                 const formatado: TempData[] = data.map((item: any) => ({
-    Temp: item.Temp,
-    Data: item.Data ?? new Date().toISOString()
-}));
+                    Temp: item.Temp,
+                    Data: item.Data ?? new Date().toISOString()
+                }));
 
                 console.log(formatado)
 
@@ -35,26 +35,24 @@ export default function HistoricoTemp() {
         carregar();
     }, []);
 
-    function Delete(index: number) {
-        setServices(prev => prev.filter((_, i) => i !== index));
-    }
+
 
     return (
-        <div className="bg-gray-800 w-260 h-auto rounded-2xl border border-gray-600 flex flex-col items-start justify-center gap-4 pl-10">
+        <div className="bg-[#343A40] w-260 h-auto rounded-2xl flex flex-col items-start justify-center gap-4 pl-10">
 
             <div>
-                <h1 className="text-gray-500">
+                <h1 className="text-[#DEE2E6]">
                     Histórico - {services.length} registros
                 </h1>
             </div>
 
             <div className="flex flex-col gap-3">
-                {services.map((service, index) => (
+                {services.map((service) => (
                     <CardHistory
                         key={`${service.Temp}-${service.Data}`}
                         Temp={service.Temp}
                         Date={service.Data}
-                        onDelete={() => Delete(index)}
+
                     />
                 ))}
             </div>

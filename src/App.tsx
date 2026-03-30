@@ -50,7 +50,7 @@ useEffect(() => {
 
 
   return (
-    <main className='bg-gray-900 min-h-screen flex flex-col gap-10'>
+    <main className='bg-[#212529] min-h-screen flex flex-col gap-10'>
       <Header />
 
       <div className='flex flex-col items-center gap-10 '>

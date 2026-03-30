@@ -1,6 +1,5 @@
 
 import { useEffect, useState } from "react";
-import { FaTrash } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 import API from "../../Data/API";
 
@@ -9,15 +8,14 @@ import API from "../../Data/API";
 
 type HistoricProp = {
     Temp: number,
-    Date: string,
-    onDelete: () => void
+    Date: string
 }
 
 type TempAPI = {
     Date: String
 }
 
-export default function CardHistory({Temp, onDelete } : HistoricProp    ) {
+export default function CardHistory({Temp } : HistoricProp    ) {
 
 
     let TempColor  = ''
@@ -29,6 +27,7 @@ export default function CardHistory({Temp, onDelete } : HistoricProp    ) {
             async function carregar () {
                 const data: TempAPI[] = await API()
                 setDados(data)
+                
                 
                 
             }   
@@ -46,15 +45,13 @@ export default function CardHistory({Temp, onDelete } : HistoricProp    ) {
 
     const Hora = new Date()
     return (
-        <div className="w-230 h-10 bg-[#191C23] rounded-2xl border border-gray-600 flex  items-center justify-between pl-5 pr-5 ">
+        <div className="w-230 h-10 bg-[#2B3035] rounded-2xl flex  items-center justify-between pl-5 pr-5 ">
             <div className="flex flex-row gap-3 items-center">
-                <h1 className={`${TempColor} font-bold text-2xl`}>{Temp}°C </h1>
+                <h1 className={`${TempColor} font-bold text-2xl`}>{Temp/100}°C </h1>
                 <p className="flex items-center gap-1 text-gray-500"><FaLocationDot /> {Hora.toLocaleDateString()}</p>
             </div>
 
-            <button onClick={onDelete} className=" p-2 rounded-md text-gray-500 hover:text-red-600 hover:bg-red-50 active:bg-red-100 transition-colors duration-200">
-                <FaTrash className="w-5 h-5" />
-            </button>
+    
         </div>
     )
 }

@@ -35,12 +35,13 @@ export function Grafico() {
 
     const labels = dados.map(item => item.Hora.slice(0, 5)) 
     const temperaturas = dados.map(item => item.Temp)
+    const temperaturaAjustado = temperaturas.map(temp => temp / 100)
 
     return (
-        <div className="flex flex-col gap-4 bg-gray-800 w-150 h-100 rounded-xl border border-gray-600">
+        <div className="flex flex-col gap-4 bg-[#343A40] w-150 h-100 rounded-xl">
             
             <div className='px-4 pt-4'>
-                <p className="font-bold text-gray-400 text-sm md:text-base">
+                <p className="font-bold text-[#DEE2E6] text-sm md:text-base">
                     Grafico de temperatura
                 </p>
             </div>
@@ -51,8 +52,8 @@ export function Grafico() {
                         labels: labels,
                         datasets: [
                             {
-                                label: "Tempo",
-                                data: temperaturas,
+                                label: "Temperatura",
+                                data: temperaturaAjustado,
                                 borderColor: '#38BDF8',
                                 backgroundColor: '#38BDF8',
                                 tension: 0.3
