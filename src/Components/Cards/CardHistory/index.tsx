@@ -1,6 +1,8 @@
 
+import { useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
+import API from "../../Data/API";
 
 
 
@@ -11,10 +13,29 @@ type HistoricProp = {
     onDelete: () => void
 }
 
+type TempAPI = {
+    Date: String
+}
+
 export default function CardHistory({Temp, onDelete } : HistoricProp    ) {
 
 
     let TempColor  = ''
+    const [dados, setDados] = useState<TempAPI[]>([])
+    
+
+    useEffect(() => {
+        try {
+            async function carregar () {
+                const data: TempAPI[] = await API()
+                setDados(data)
+                const date = data.map(item => item.Date)
+                
+            }   
+        } catch (error) {
+            console.error("err : " + error )
+        }
+    }, [ ])
     
     if (Temp < 25) TempColor = "text-blue-400"
     else if (Temp > 25.5 && Temp < 160) TempColor = "text-amber-400 "

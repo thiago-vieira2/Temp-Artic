@@ -15,7 +15,7 @@ export default function Card_temp() {
 
                 setDados(data)
 
-                // pegar o último registro
+                
                 const ultimo = data[data.length - 1]
 
                 setTemp(ultimo.Temp)
@@ -26,7 +26,7 @@ export default function Card_temp() {
             }
         }
 
-        carregar() // ← FALTAVA ISSO
+        carregar() 
     }, [])
 
     if (temp === null) {
