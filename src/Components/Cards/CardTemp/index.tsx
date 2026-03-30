@@ -4,7 +4,7 @@ import API from "../../Data/API"
 
 export default function Card_temp() {
 
-    const [dados, setDados] = useState([])
+    const [, setDados] = useState([])
     const [temp, setTemp] = useState(null)
 
     useEffect(() => {

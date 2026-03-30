@@ -18,7 +18,7 @@ type TempAPI = {
 
 function App() {
 
-  const [temp, setTemp] = useState<TempAPI[]>([])
+  const [, setTemp] = useState<TempAPI[]>([])
   const [max, setMax] = useState(0)
   const [min, setMin] = useState(0)
   const [media, setMedia] = useState(0)

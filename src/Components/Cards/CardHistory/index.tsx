@@ -21,7 +21,7 @@ export default function CardHistory({Temp, onDelete } : HistoricProp    ) {
 
 
     let TempColor  = ''
-    const [dados, setDados] = useState<TempAPI[]>([])
+    const [, setDados] = useState<TempAPI[]>([])
     
 
     useEffect(() => {
@@ -29,9 +29,11 @@ export default function CardHistory({Temp, onDelete } : HistoricProp    ) {
             async function carregar () {
                 const data: TempAPI[] = await API()
                 setDados(data)
-                const date = data.map(item => item.Date)
+                
                 
             }   
+
+            carregar()
         } catch (error) {
             console.error("err : " + error )
         }
